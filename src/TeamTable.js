@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MaterialPicker, RGBColor } from "react-color";
+import { API_URL } from "./App";
 
 function TeamTable() {
   const [teams, setTeams] = useState([]);
@@ -8,7 +9,7 @@ function TeamTable() {
 
   // get the teams from the server
   useEffect(() => {
-    fetch("http://localhost:5000/teams/get")
+    fetch(API_URL + "/teams/get")
       .then((response) => response.json())
       .then((data) => {
         setTeams(data);
@@ -56,7 +57,7 @@ function TeamTable() {
   }
 
   function saveChanges() {
-    fetch("http://localhost:5000/teams/set", {
+    fetch(API_URL + "/teams/set", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

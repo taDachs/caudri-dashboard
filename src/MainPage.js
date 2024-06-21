@@ -5,11 +5,11 @@ import Timer from "./Timer";
 function MainPage() {
   return (
     <div>
-    <h1>Countdown Timer</h1>
-    <div className='container'>
-      <Leaderboard />
-      <Timer />
-    </div>
+      <h1>Countdown Timer</h1>
+      <div className='container'>
+        <Leaderboard />
+        <Timer />
+      </div>
     </div>
   );
 

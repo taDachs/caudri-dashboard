@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_URL } from './App';
 
 function TimerControl() {
   const [rows, setRows] = useState([]);
@@ -9,7 +10,7 @@ function TimerControl() {
   };
 
   const startTimer = () => {
-    fetch('http://localhost:5000/timer/start', {
+    fetch(API_URL + '/timer/start', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -19,7 +20,7 @@ function TimerControl() {
   };
 
   const stopTimer = () => {
-    fetch('http://localhost:5000/timer/stop', {
+    fetch(API_URL + '/timer/stop', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -33,7 +34,7 @@ function TimerControl() {
     if (value === NaN) {
       return;
     }
-    fetch('http://localhost:5000/timer/set', {
+    fetch(API_URL + '/timer/set', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
