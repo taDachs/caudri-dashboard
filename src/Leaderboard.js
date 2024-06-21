@@ -7,6 +7,7 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import io from 'socket.io-client';
+import { API_URL } from "./App";
 
 ChartJS.register(
   CategoryScale,
@@ -25,8 +26,8 @@ function Leaderboard() {
 
 
   useEffect(() => {
-    socketRef.current = io.connect('http://localhost:5000');
-    socketRef.current.on('teams', function(data) {
+    socketRef.current = io.connect(API_URL);
+    socketRef.current.on('teams', function (data) {
       data.sort((a, b) => b.points - a.points);
       setTeams(data);
     });
@@ -64,9 +65,9 @@ function Leaderboard() {
   };
 
   return (
-  <div className="leaderboard">
-    <Bar options={options} data={data} />
-  </div>
+    <div className="leaderboard">
+      <Bar options={options} data={data} />
+    </div>
   );
 }
 
